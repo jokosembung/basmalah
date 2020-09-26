@@ -1,6 +1,6 @@
 package controllers
 
-import "github.com/jokosembung/emaal/api/middlewares"
+import "github.com/jokosembung/basmalah/api/middlewares"
 
 func (s *Server) initializeRoutes() {
 
