@@ -14,6 +14,9 @@ func (s *Server) initializeRoutes() {
 	s.Router.HandleFunc("/kartu/{user_id}/{no_kartu}", middlewares.SetMiddlewareJSON(middlewares.SetMiddlewareAuthentication(s.GetKartu))).Methods("GET")
 	s.Router.HandleFunc("/kartu/{user_id}/tambah_kartu", middlewares.SetMiddlewareJSON(middlewares.SetMiddlewareAuthentication(s.TambahKartu))).Methods("PUT")
 
+	//customer
+	s.Router.HandleFunc("/customer/{br_code}", middlewares.SetMiddlewareJSON(s.GetLastLocal)).Methods("GET")
+	s.Router.HandleFunc("/customer/{br_code}/tambah_customer/{br_id}/{last_local_id}", middlewares.SetMiddlewareJSON(s.TambahCustomer)).Methods("PUT")
 	//Users routes
 	//s.Router.HandleFunc("/users", middlewares.SetMiddlewareJSON(s.CreateUser)).Methods("POST")
 	//s.Router.HandleFunc("/users", middlewares.SetMiddlewareJSON(s.GetUsers)).Methods("GET")
